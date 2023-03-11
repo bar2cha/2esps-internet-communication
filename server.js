@@ -4,6 +4,7 @@ const express = require('express');
 var cors = require('cors');
 // import `items` from `routes` folder 
 const itemsRouter = require('./routes/items');
+const espRouter = require('./routes/esp');
 
 // create new app
 const app = express();
@@ -19,6 +20,7 @@ app.use(cors({ origin: 'http://localhost:8100' }));
 → localhost:3000/items/:id (this returns single object)
 */
 app.use('/items', itemsRouter);
+app.use('/esp', espRouter);
 
 // default URL to API
 app.use('/', function (req, res) {
