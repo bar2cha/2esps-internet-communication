@@ -45,9 +45,10 @@ router.get('/:id', function (req, res) {
 // that is add new object to `data` array
 router.post('/', function (req, res) {
 
+   // Co posila ESP
    // console.log('res', req.body);
 
-   // TOTO: jen to spravne api_key
+   // TODO: jen to spravne api_key
    let apiKey = req.body.api_key;
 
    let id = req.body.id;
