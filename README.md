@@ -65,3 +65,20 @@ raw, JSON (Content-Type: application/json)
 
 DELETE http://localhost:3000/items/3
 
+
+
+----
+
+esp
+
+postman body type JSON
+
+```json
+{
+    "api_key": "some_api_key",
+    "id": 1,
+    "stav": 1,
+    "pocet": 3,
+    "zprava": "testovací zpráva šč"
+}
+```

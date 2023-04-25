@@ -7,19 +7,30 @@ let data = []
 let apiKey = process.env.APIKEY;
 
 router.get('/', function (req, res) {
+   const apiKey = req.header('api_key');
+   console.log('ESP get all - api_key: ', apiKey);
    res.status(200).json(data);
 });
 
 router.post('/', function (req, res) {
    // Show what sending ESP
    // console.log('ESPTEST res', req.body);
+   console.log('ESP post - req.body: ', req.body);
 
    let esp = {
+      api_key: req.body.api_key,
       id: req.body.id,
       stav: req.body.stav,
       pocet: req.body.pocet,
+      zprava: req.body.zprava,
       posledni: new Date() // new date object
    };
+   // apiKey in header
+   //const apiKey = req.header('api_key');
+   const apiKey = esp.api_key;
+
+   console.log('ESP post - api_key: ', apiKey, req.body.api_key);
+
 
       // check apiKey
    if (apiKey === req.body.api_key) {
@@ -38,7 +49,7 @@ router.post('/', function (req, res) {
          data.splice(targetIndex, 1, esp);
 
          // TODO: vratit stav druheho ESP
-         response = { "stav": "xxx" };
+         response = { "stav": "Update OK" };
 
          console.log('ESPTEST UPDATE data', esp, response)
          res.status(202).json(response);
