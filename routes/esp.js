@@ -4,7 +4,7 @@ require('dotenv').config();
 const router = express.Router();
 
 let data = []
-let apiKey = process.env.APIKEY;
+let serverApiKey = process.env.APIKEY;
 
 router.get('/', function (req, res) {
    const apiKey = req.header('api_key');
@@ -14,7 +14,6 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
    // Show what sending ESP
-   // console.log('ESPTEST res', req.body);
    console.log('ESP post - req.body: ', req.body);
 
    let esp = {
@@ -31,9 +30,8 @@ router.post('/', function (req, res) {
 
    console.log('ESP post - api_key: ', apiKey, req.body.api_key);
 
-
       // check apiKey
-   if (apiKey === req.body.api_key) {
+   if (serverApiKey === apiKey ) {
       console.log('api key OK');
 
       let found = data.find(function (item) {
@@ -51,10 +49,10 @@ router.post('/', function (req, res) {
          // TODO: vratit stav druheho ESP
          response = { "stav": "Update OK" };
 
-         console.log('ESPTEST UPDATE data', esp, response)
+         console.log('ESP UPDATE data', esp, response)
          res.status(202).json(response);
       } else {
-         console.log('ESPTEST NEW data', esp)
+         console.log('ESP NEW data', esp)
          data.push(esp);
          res.status(201).json(esp);
       }
