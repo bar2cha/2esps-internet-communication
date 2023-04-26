@@ -85,13 +85,18 @@ postman body type JSON
 
 ## pm2
 
+```sh
 cd /srv/nodejs
 git clone https://github.com/bar2cha/2esps-internet-communication.git
 
 cd /srv/nodejs/2esps-internet-communication
+touch .env
+# naplit soubor .env 
+
 git pull
 docker build -t raketovydarek .
 docker run -p 3501:3000 --restart=always --name raketovydarek raketovydarek
+```
 
 bohužel projekt keymetrics/pm2 nemá arm verzi
 
@@ -99,8 +104,17 @@ bohužel projekt keymetrics/pm2 nemá arm verzi
 
 cesta jen nodejs
 
+```sh
 root@odroidc4:/srv/nodejs/2esps-internet-communication# pwd
 /srv/nodejs/2esps-internet-communication
 git pull
 docker build . -t bar2cha/raketovydarek
 docker run -p 3501:3000 -d  --restart=always --name raketovydarek bar2cha/raketovydarek
+```
+
+odstranit starý image
+
+```sh
+docker images | grep none
+docker image rm xxxx
+```

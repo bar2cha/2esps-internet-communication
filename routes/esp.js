@@ -9,7 +9,15 @@ let serverApiKey = process.env.APIKEY;
 router.get('/', function (req, res) {
    const apiKey = req.header('api_key');
    console.log('ESP get all - api_key: ', apiKey);
-   res.status(200).json(data);
+
+   if (serverApiKey === apiKey) {
+      console.log('api key OK');
+      res.status(200).json(data);
+   } else {
+      console.log('api key ERROR');
+      res.sendStatus(404);
+   }
+  
 });
 
 router.post('/', function (req, res) {
