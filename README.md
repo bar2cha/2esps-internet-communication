@@ -82,3 +82,13 @@ postman body type JSON
     "zprava": "testovací zpráva šč"
 }
 ```
+
+## pm2
+
+cd /srv/nodejs
+git clone https://github.com/bar2cha/2esps-internet-communication.git
+
+cd /srv/nodejs/2esps-internet-communication
+git pull
+docker build -t raketovydarek .
+docker run -p 3501:3000 --restart=always --name raketovydarek raketovydarek
