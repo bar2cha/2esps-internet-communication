@@ -24,7 +24,7 @@ app.use('/esp', espRouter);
 
 // default URL to API
 app.use('/', function (req, res) {
-   res.send('node-ex-api works :-)');
+   res.send('raketovydarek works :-)');
 });
 
 const server = http.createServer(app);

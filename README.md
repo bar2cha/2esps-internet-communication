@@ -92,3 +92,15 @@ cd /srv/nodejs/2esps-internet-communication
 git pull
 docker build -t raketovydarek .
 docker run -p 3501:3000 --restart=always --name raketovydarek raketovydarek
+
+bohužel projekt keymetrics/pm2 nemá arm verzi
+
+----
+
+cesta jen nodejs
+
+root@odroidc4:/srv/nodejs/2esps-internet-communication# pwd
+/srv/nodejs/2esps-internet-communication
+git pull
+docker build . -t bar2cha/raketovydarek
+docker run -p 3501:3000 -d  --restart=always --name raketovydarek bar2cha/raketovydarek
