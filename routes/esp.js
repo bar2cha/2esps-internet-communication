@@ -34,8 +34,8 @@ router.post('/', function (req, res) {
       posledni: new Date() // new date object
    };
    // apiKey in header
-   // const apiKey = req.header('apikey');
-   const apiKey = esp.api_key;
+   const apiKey = req.header('apikey');
+   // const apiKey = esp.api_key;
 
    console.log('ESP get all - req: ', req);
 
