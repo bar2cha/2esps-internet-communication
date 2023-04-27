@@ -37,6 +37,8 @@ router.post('/', function (req, res) {
    // const apiKey = req.header('apikey');
    const apiKey = esp.api_key;
 
+   console.log('ESP get all - req: ', req);
+
    console.log('ESP post - apikey: ', apiKey);
 
       // check apiKey
