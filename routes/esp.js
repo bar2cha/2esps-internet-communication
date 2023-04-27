@@ -8,7 +8,7 @@ let serverApiKey = process.env.APIKEY;
 
 router.get('/', function (req, res) {
    const apiKey = req.header('api_key');
-   console.log('ESP get all - req.header: ', req.header);
+   console.log('ESP get all - req: ', req);
    console.log('ESP get all - api_key: ', apiKey);
 
    if (serverApiKey === apiKey) {

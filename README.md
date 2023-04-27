@@ -118,3 +118,23 @@ odstranit starý image
 docker images | grep none
 docker image rm xxxx
 ```
+
+```sh
+docker stop raketovydarek; docker rm raketovydarek
+```
+
+```sh
+docker build . -t bar2cha/raketovydarek
+```
+
+```sh
+docker run -p 3501:3000 -d  --restart=always --name raketovydarek bar2cha/raketovydarek
+```
+
+```sh
+docker images | grep none
+docker image rm "to co je none"
+docker logs -f raketovydarek
+```
+
+```sh
