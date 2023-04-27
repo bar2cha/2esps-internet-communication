@@ -18,12 +18,13 @@ router.get('/', function (req, res) {
       console.log('api key ERROR');
       res.sendStatus(404);
    }
-  
+
 });
 
 router.post('/', function (req, res) {
    // Show what sending ESP
    console.log('ESP post - req.body: ', req.body);
+   const getId = req.body.id_chci;
 
    let esp = {
       // api_key: req.body.api_key,
@@ -35,15 +36,15 @@ router.post('/', function (req, res) {
    };
    // apiKey in header
    const apiKey = req.header('apikey');
-   // const apiKey = esp.api_key;
+   // console.log('ESP post - apikey: ', apiKey);
 
-   console.log('ESP get all - req: ', req);
-
-   console.log('ESP post - apikey: ', apiKey);
-
-      // check apiKey
-   if (serverApiKey === apiKey ) {
+   // check apiKey
+   if (serverApiKey === apiKey) {
       console.log('api key OK');
+
+      const pairedId = data.find(function (item) {
+         return item.id === getId;
+      });
 
       let found = data.find(function (item) {
          return item.id === req.body.id;
@@ -61,11 +62,11 @@ router.post('/', function (req, res) {
          response = { "stav": "Update OK" };
 
          console.log('ESP UPDATE data', esp, response)
-         res.status(202).json(response);
+         res.status(202).json(pairedId);
       } else {
          console.log('ESP NEW data', esp)
          data.push(esp);
-         res.status(201).json(esp);
+         res.status(201).json(pairedId);
       }
    } else {
       console.log('api key ERROR');
