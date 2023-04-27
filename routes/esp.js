@@ -46,7 +46,7 @@ router.post('/', function (req, res) {
          return item.id === getId;
       });
 
-      let found = data.find(function (item) {
+      const found = data.find(function (item) {
          return item.id === req.body.id;
       });
 
@@ -59,9 +59,10 @@ router.post('/', function (req, res) {
          data.splice(targetIndex, 1, esp);
 
          // TODO: vratit stav druheho ESP
-         response = { "stav": "Update OK" };
+         // response = { "stav": "Update OK" };
 
-         console.log('ESP UPDATE data', esp, response)
+         console.log('ESP UPDATE esp', esp);
+         console.log('ESP UPDATE response', pairedId);
          res.status(202).json(pairedId);
       } else {
          console.log('ESP NEW data', esp)
