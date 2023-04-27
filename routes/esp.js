@@ -7,9 +7,9 @@ let data = []
 let serverApiKey = process.env.APIKEY;
 
 router.get('/', function (req, res) {
-   const apiKey = req.header('api_key');
+   const apiKey = req.header('apikey');
    console.log('ESP get all - req: ', req);
-   console.log('ESP get all - api_key: ', apiKey);
+   console.log('ESP get all - header apikey: ', apiKey);
 
    if (serverApiKey === apiKey) {
       console.log('api key OK');
@@ -26,7 +26,7 @@ router.post('/', function (req, res) {
    console.log('ESP post - req.body: ', req.body);
 
    let esp = {
-      api_key: req.body.api_key,
+      // api_key: req.body.api_key,
       id: req.body.id,
       stav: req.body.stav,
       pocet: req.body.pocet,
@@ -34,10 +34,10 @@ router.post('/', function (req, res) {
       posledni: new Date() // new date object
    };
    // apiKey in header
-   //const apiKey = req.header('api_key');
+   // const apiKey = req.header('apikey');
    const apiKey = esp.api_key;
 
-   console.log('ESP post - api_key: ', apiKey, req.body.api_key);
+   console.log('ESP post - apikey: ', apiKey);
 
       // check apiKey
    if (serverApiKey === apiKey ) {
