@@ -8,7 +8,7 @@ let serverApiKey = process.env.APIKEY;
 
 router.get('/', function (req, res) {
    const apiKey = req.header('apikey');
-   console.log('ESP get all - req: ', req);
+   // console.log('ESP get all - req: ', req);
    console.log('ESP get all - header apikey: ', apiKey);
 
    if (serverApiKey === apiKey) {
@@ -32,6 +32,8 @@ router.post('/', function (req, res) {
       stav: req.body.stav,
       pocet: req.body.pocet,
       zprava: req.body.zprava,
+      sync: req.body.sync, 
+      rst: req.body.rst,
       posledni: new Date() // new date object
    };
    // apiKey in header
