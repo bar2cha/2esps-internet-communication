@@ -137,4 +137,10 @@ docker image rm "to co je none"
 docker logs -f raketovydarek
 ```
 
-```sh
+## Data structure for Digimal
+
+230726
+
+```json
+{"id_chci":2,"id":1,"stav":0,"pocet":0,"zprava":"","sync":0,"rst":"0","hunger":10000000,"happiness":1000000,"health":10000000,"discipline":1000000,"weight":1000000,"age":3223458}
+```

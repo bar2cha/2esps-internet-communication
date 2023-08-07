@@ -34,6 +34,12 @@ router.post('/', function (req, res) {
       zprava: req.body.zprava,
       sync: req.body.sync, 
       rst: req.body.rst,
+      hunger: req.body.hunger,
+      happiness: req.body.happiness,
+      health: req.body.health,
+      discipline: req.body.health,
+      weight: req.body.weight,
+      age: req.body.age,
       posledni: new Date() // new date object
    };
    // apiKey in header
