@@ -21,6 +21,45 @@ router.get('/', function (req, res) {
 
 });
 
+router.get('/:id', function (req, res) {
+
+   // apiKey in header
+   const apiKey = req.header('apikey');
+   // console.log('ESP post - apikey: ', apiKey);
+
+   if (serverApiKey === apiKey) {
+      console.log('api key OK');
+
+      const getId = parseInt(req.params.id);
+      console.log('ESP get - getId: ', getId);
+
+      const pairedId = data.find(function (item) {
+         return item.id === getId;
+      });
+
+      // const found = data.find(function (item) {
+      //    return item.id === req.body.id;
+      // });
+
+      console.log('GET: pairedId', pairedId);
+
+      // check if item found
+      if (pairedId) {
+         // find index of found object from array of data
+         // let targetIndex = data.indexOf(found);
+
+         console.log('ESP GET - id found:', pairedId);
+         res.status(202).json(pairedId);
+      } else {
+         console.log('ESP GET id not found')
+         res.status(201).json({'id_not_found': getId});
+      }
+   } else {
+      console.log('api key ERROR');
+      res.sendStatus(404);
+   }
+});
+
 router.post('/', function (req, res) {
    // Show what sending ESP
    console.log('ESP post - req.body: ', req.body);
